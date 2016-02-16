@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DEB5163C-6647-4986-9588-0BB2842A3119}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WinShooterGame</RootNamespace>
+    <AssemblyName>WinShooterGame</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <MonoGameContentBuilderExe>
+    </MonoGameContentBuilderExe>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Windows\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Windows\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Animation.cs" />
+    <Compile Include="Subsystems\AnimationSubsystem.cs" />
+    <Compile Include="Core\EntityManager.cs" />
+    <Compile Include="Core\Subsystem.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="ParallaxingBackground.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Subsystems\ClampScreenSubsystem.cs" />
+    <Compile Include="Subsystems\CollisionSubsystem.cs" />
+    <Compile Include="Subsystems\ConstantVelocitySubsystem.cs" />
+    <Compile Include="Subsystems\DeactivateHealthZeroSubsystem.cs" />
+    <Compile Include="Subsystems\DeactivateOffScreenRightSubsystem.cs" />
+    <Compile Include="Subsystems\DeactivateOffScreenLeftSubsystem.cs" />
+    <Compile Include="Subsystems\FireLaserSubsystem.cs" />
+    <Compile Include="Subsystems\LifetimeSubsystem.cs" />
+    <Compile Include="Subsystems\MovableSubsystem.cs" />
+    <Compile Include="Subsystems\PlayerControlSubsystem.cs" />
+    <Compile Include="Subsystems\RemoveInactiveSubsystem.cs" />
+    <Compile Include="Subsystems\RenderSubsystem.cs" />
+    <Compile Include="Subsystems\SpawnEnemySubsystem.cs" />
+    <Compile Include="Subsystems\WrapScreenSubsystem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="extremedb4net">
+      <HintPath>..\..\..\..\..\..\..\McObject\IM\eXtremeDB\win32vs2012\target\bin.so\extremedb4net.dll</HintPath>
+    </Reference>
+    <Reference Include="extremedb4net_mvcc">
+      <HintPath>..\..\..\..\..\..\..\McObject\IM\eXtremeDB\win32vs2012\target\bin.so\extremedb4net_mvcc.dll</HintPath>
+    </Reference>
+    <Reference Include="extremedb4net_mvcc_debug">
+      <HintPath>..\..\..\..\..\..\..\McObject\IM\eXtremeDB\win32vs2012\target\bin.so\extremedb4net_mvcc_debug.dll</HintPath>
+    </Reference>
+    <Reference Include="extremedb4net_mvcc_shm">
+      <HintPath>..\..\..\..\..\..\..\McObject\IM\eXtremeDB\win32vs2012\target\bin.so\extremedb4net_mvcc_shm.dll</HintPath>
+    </Reference>
+    <Reference Include="extremedb4net_mvcc_shm_debug">
+      <HintPath>..\..\..\..\..\..\..\McObject\IM\eXtremeDB\win32vs2012\target\bin.so\extremedb4net_mvcc_shm_debug.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.99.0\lib\net40\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.99.0\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.99.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.99.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Graphics\bgLayer1.png" />
+    <Content Include="Content\Graphics\bgLayer2.png" />
+    <Content Include="Content\Graphics\endMenu.png" />
+    <Content Include="Content\Graphics\explosion.png" />
+    <Content Include="Content\Graphics\laser.png" />
+    <Content Include="Content\Graphics\mainbackground.png" />
+    <Content Include="Content\Graphics\mainMenu.png" />
+    <Content Include="Content\Graphics\mine.png" />
+    <Content Include="Content\Graphics\mineAnimation.png" />
+    <Content Include="Content\Graphics\player.png" />
+    <Content Include="Content\Graphics\shipAnimation.png" />
+    <Content Include="Content\Sound\explosion.wav" />
+    <Content Include="Content\Sound\gameMusic.mp3" />
+    <Content Include="Content\Sound\laserFire.wav" />
+    <Content Include="Content\Sound\menuMusic.mp3" />
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Content\Graphics\gameFont.spritefont" />
+    <None Include="Content\WinShooterGame.sqlite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.99.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.99.0\build\net40\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.99.0\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.99.0\build\net40\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
