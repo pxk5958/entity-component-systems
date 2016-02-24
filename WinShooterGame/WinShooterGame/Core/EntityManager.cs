@@ -7,34 +7,11 @@ namespace WinShooterGame.Core
 {
     class EntityManager
     {
-        /*
-        private static Dictionary<Int64, IList<Func<Int64, bool>>> componentSubsystemRegisterMap = new Dictionary<Int64, IList<Func<Int64, bool>>>();
-        public static Dictionary<Int64, IList<Func<Int64, bool>>> ComponentSubsystemRegisterMap
-        {
-            get { return componentSubsystemRegisterMap; }
-        }
-
-        private static Dictionary<Int64, IList<Func<Int64, bool>>> componentSubsystemUnregisterMap = new Dictionary<Int64, IList<Func<Int64, bool>>>();
-        public static Dictionary<Int64, IList<Func<Int64, bool>>> ComponentSubsystemUnregisterMap
-        {
-            get { return componentSubsystemUnregisterMap; }
-        }
-        */
-
         private static SQLiteConnection m_dbConnection;
         public static SQLiteConnection DBConnection
         {
             get { return m_dbConnection; }
         }
-
-        //private static Dictionary<string, Int64> componentNameIdMap = new Dictionary<string, Int64>();
-        /*
-        private static Dictionary<string, string> componentNameTableNameMap = new Dictionary<string, string>();
-        public static Dictionary<string, string> ComponentNameTableNameMap
-        {
-            get { return componentNameTableNameMap; }
-        }
-        */
 
         public static bool InitializeDatabase()
         {
@@ -62,17 +39,6 @@ namespace WinShooterGame.Core
 
             return exists;
         }
-
-        /*
-        private static readonly Finalizer finalizer = new Finalizer();
-
-        private sealed class Finalizer
-        {
-            ~Finalizer()
-            {
-            }
-        }
-        */
 
         public static void FinalizeDatabase()
         {
@@ -203,16 +169,6 @@ namespace WinShooterGame.Core
                     insertEntityComponentCommand.Parameters.Add(new SQLiteParameter("@component_id", componentId));
                     insertEntityComponentCommand.ExecuteNonQuery();
                 }
-
-                /*
-                if (componentSubsystemRegisterMap.ContainsKey(componentId))
-                {
-                    foreach (Func<Int64, bool> func in componentSubsystemRegisterMap[componentId])
-                    {
-                        func(entityId);
-                    }
-                }
-                */
             }
         }
 
@@ -390,16 +346,6 @@ namespace WinShooterGame.Core
                 deleteCommand.Parameters.Add(new SQLiteParameter("@entity_id", entityId));
                 deleteCommand.Parameters.Add(new SQLiteParameter("@component_id", componentId));
                 deleteCommand.ExecuteNonQuery();
-
-                /*
-                if (componentSubsystemUnregisterMap.ContainsKey(componentId))
-                {
-                    foreach (Func<Int64, bool> func in componentSubsystemUnregisterMap[componentId])
-                    {
-                        func(entityId);
-                    }
-                }
-                */
             }
         }
 
@@ -422,16 +368,6 @@ namespace WinShooterGame.Core
                 deleteCommand.Parameters.Add(new SQLiteParameter("@entity_id", entityId));
                 deleteCommand.Parameters.Add(new SQLiteParameter("@component_id", componentId));
                 deleteCommand.ExecuteNonQuery();
-
-                /*
-                if (componentSubsystemUnregisterMap.ContainsKey(componentId))
-                {
-                    foreach (Func<Int64, bool> func in componentSubsystemUnregisterMap[componentId])
-                    {
-                        func(entityId);
-                    }
-                }
-                */
             }
         }
 
@@ -545,28 +481,5 @@ namespace WinShooterGame.Core
 
             return cmd;
         }
-
-        /*
-        public static SQLiteCommand PrepareGetComponentData(string componentName)
-        {
-            SQLiteCommand cmd = new SQLiteCommand(EntityManager.DBConnection);
-
-            SQLiteCommand getComponentTableCommand = new SQLiteCommand("SELECT table_name from _components WHERE official_name = @component_name", m_dbConnection);
-            getComponentTableCommand.Parameters.Add(new SQLiteParameter("@component_name", componentName));
-            SQLiteDataReader getComponentTableReader = getComponentTableCommand.ExecuteReader();
-            if (getComponentTableReader.Read())
-            {
-                if (getComponentTableReader["table_name"] != DBNull.Value)
-                {
-                    string componentTable = (string)getComponentTableReader["table_name"];
-
-                    string sqlQuery = "SELECT * FROM '" + componentTable + "' WHERE component_data_id = (SELECT component_data_id FROM _entity_components WHERE entity_id = @entity_id)";
-                    cmd.CommandText = sqlQuery;
-                }
-            }        
-
-            return cmd;
-        }
-        */
     }
 }
